@@ -24,7 +24,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigator = () => (
   <Stack.Navigator initialRouteName="Home">
-    <Stack.Screen name="Home" component={HomeScreen} />
+    <Stack.Screen name="Home" component={HomeScreen}  options={{headerShown:false}} />
     <Stack.Screen name="LineChart" component={LineChartScreen} />
     <Stack.Screen name="BarChart" component={BarChartScreen} />
     <Stack.Screen name="StackBarChart" component={StackBarChartScreen} />

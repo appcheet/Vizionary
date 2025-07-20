@@ -8,9 +8,8 @@ import CustomCardView from '../components/global/CustomCardView';
 import { fitnessBarGroupData, victoryBarData } from '../utils/chartData';
 import { chartContainerWidth } from '../utils/constants';
 import VictoryBarGroupChart from '../components/charts/groupbar/VictoryBarGroupChart';
-
-
-
+import CustomVictoryLineChart, { createSeriesConfig } from '../components/charts/linechart/CustomVictoryLineChart';
+import { lineChartData } from '../utils/chartData';
 
 
 const HomeScreen = () => {
@@ -22,7 +21,7 @@ const HomeScreen = () => {
         navigation.navigate('BarChart');
         break;
 
-      case 'sleep':
+      case 'linechart':
         navigation.navigate('LineChart');
         break;
 
@@ -67,13 +66,24 @@ const HomeScreen = () => {
         />
       </CustomCardView>
 
+      <CustomCardView description="Track trends over time with an interactive line chart." containerStyle={[styles.chartSection, { width: chartContainerWidth }]} type="linechart" title="Line Chart" onPress={handleNavigationPress}>
+        <CustomVictoryLineChart
+          data={lineChartData[0].data}
+          series={[createSeriesConfig('value', '#1877F2', { unit: 'kg', label: 'Value' })]}
+          xKey="label"
+          width={chartContainerWidth}
+          height={230}
+          axisOptions={{lineColor:'rgba(0,0,0,0,0.001)'}}
+        />
+      </CustomCardView>
+
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   scrollContent: { paddingBottom: 32, paddingTop: 32 },
-  title: { fontSize: 28, fontWeight: 'bold', textAlign: 'center', marginBottom: 24 },
+  title: { fontSize: 28, fontWeight: 'bold', textAlign: 'left', marginBottom: 24,marginLeft:12 },
   chartSection: { marginTop: 32, alignItems: 'center', alignSelf: 'center' },
   chartTitle: { fontWeight: 'bold', fontSize: 18, marginBottom: 8, textAlign: 'center' },
 });

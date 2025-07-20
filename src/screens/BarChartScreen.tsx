@@ -4,7 +4,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/RootNavigator';
 import VictoryBarChart from '../components/charts/barchart/VictoryBarChart';
 import { chartContainerWidth, SCREEN_WIDTH } from '../utils/constants';
-import { giftedBarData, sampleVictoryBarData, victoryBarData } from '../utils/chartData';
+import { giftedBarData, sampleVictoryBarData, victoryBarData, victoryBarData14Days, victoryBarData30Days } from '../utils/chartData';
 import CustomCardView from '../components/global/CustomCardView';
 import { GiftedBarChartWithLegend } from '../components/charts/barchart/CustomizeGiftedBarChart';
 import GiftedBarChart from '../components/charts/barchart/GiftedBarChart';
@@ -82,6 +82,48 @@ const BarChartScreen = () => {
               <Text style={{ color: '#fff', fontSize: 12 }}>{item.month}: ${item.revenue}</Text>
             </View>
           )}
+        />
+      </CustomCardView>
+
+      <CustomCardView description="Simple bar chart with 14 days of data and activity indicator (no inline tooltip)." type="barchart" title="Bar Chart (14 Days)">
+        <VictoryBarChart
+          data={victoryBarData14Days}
+          keys={{ x: 'label', y: 'value' }}
+          unit="$"
+          activeIndicator={{ show: true }}
+          tooltip={{ show: false }}
+          interaction={{ enabled: true, press: { enabled: true } }}
+          barStyle={{
+            width: 12,
+            colors: ['#43C6AC'],
+            roundedCorners: { topLeft: 4, topRight: 4 },
+          }}
+          axisOptions={{
+            labelColor: '#222',
+            axisSide: { 'x': 'bottom', 'y': 'left' }
+          }}
+          containerStyle={{ width: SCREEN_WIDTH - 35, height: 220 }}
+        />
+      </CustomCardView>
+
+      <CustomCardView description="Simple bar chart with 30 days of data and activity indicator (no inline tooltip)." type="barchart" title="Bar Chart (30 Days)">
+        <VictoryBarChart
+          data={victoryBarData30Days}
+          keys={{ x: 'label', y: 'value' }}
+          unit="$"
+          activeIndicator={{ show: true }}
+          tooltip={{ show: false }}
+          interaction={{ enabled: true, press: { enabled: true } }}
+          barStyle={{
+            width: 8,
+            colors: ['#26A2FB', '#43C6AC'],
+            roundedCorners: { topLeft: 4, topRight: 4 },
+          }}
+          axisOptions={{
+            labelColor: '#222',
+            axisSide: { 'x': 'bottom', 'y': 'left' }
+          }}
+          containerStyle={{ width: SCREEN_WIDTH - 35, height: 220 }}
         />
       </CustomCardView>
 
