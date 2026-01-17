@@ -8,6 +8,7 @@ import StackBarChartScreen from '../screens/StackBarChartScreen';
 import BarChartScreen from '../screens/BarChartScreen';
 import LineChartScreen from '../screens/LineChartScreen';
 import HomeScreen from '../screens/HomeScreen';
+import DonutPieChartScreen from '../screens/DonutPieChartScreen';
 
 
 export type RootStackParamList = {
@@ -18,19 +19,23 @@ export type RootStackParamList = {
   LineChartDetails: undefined;
   BarChartDetails: undefined;
   StackBarChartDetails: undefined;
+  DonutPieChartDetails: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigator = () => (
   <Stack.Navigator initialRouteName="Home">
-    <Stack.Screen name="Home" component={HomeScreen}  options={{headerShown:false}} />
+    <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
     <Stack.Screen name="LineChart" component={LineChartScreen} />
     <Stack.Screen name="BarChart" component={BarChartScreen} />
     <Stack.Screen name="StackBarChart" component={StackBarChartScreen} />
     <Stack.Screen name="LineChartDetails" component={LineChartDetails} options={{ title: 'Line Chart Details' }} />
     <Stack.Screen name="BarChartDetails" component={BarChartDetails} options={{ title: 'Bar Chart Details' }} />
     <Stack.Screen name="StackBarChartDetails" component={StackBarChartDetails} options={{ title: 'Stack Bar Chart Details' }} />
+
+    <Stack.Screen name="DonutPieChartDetails" component={DonutPieChartScreen} options={{ title: 'Donut Pie Charts' }} />
+
   </Stack.Navigator>
 );
 

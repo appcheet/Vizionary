@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Text, StyleSheet, ScrollView } from 'react-native';
+import { Text, StyleSheet, ScrollView } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/RootNavigator';
 import { useNavigation } from '@react-navigation/native';
@@ -10,6 +10,7 @@ import { chartContainerWidth } from '../utils/constants';
 import VictoryBarGroupChart from '../components/charts/groupbar/VictoryBarGroupChart';
 import CustomVictoryLineChart, { createSeriesConfig } from '../components/charts/linechart/CustomVictoryLineChart';
 import { lineChartData } from '../utils/chartData';
+import CustomDonutChart from '../components/charts/donutpiechart/CustomDonutChart';
 
 
 const HomeScreen = () => {
@@ -42,7 +43,7 @@ const HomeScreen = () => {
         <VictoryBarChart
           data={victoryBarData}
           keys={{ x: 'label', y: 'value' }}
-          tooltip={{ show: true, position: 'inline' ,animated:true}}
+          tooltip={{ show: true, position: 'inline', animated: true }}
           unit="$"
           barStyle={{
             width: 18,
@@ -73,17 +74,24 @@ const HomeScreen = () => {
           xKey="label"
           width={chartContainerWidth}
           height={230}
-          axisOptions={{lineColor:'rgba(0,0,0,0,0.001)'}}
+          axisOptions={{ lineColor: 'rgba(0,0,0,0,0.001)' }}
         />
       </CustomCardView>
+
+
+      <CustomCardView description="Track trends over time with an interactive pie chart." containerStyle={[styles.chartSection, { width: chartContainerWidth }]} type="pie" title="Donut Pie Chart" onPress={handleNavigationPress}>
+        <CustomDonutChart />
+      </CustomCardView>
+
+
 
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollContent: { paddingBottom: 32, paddingTop: 32 },
-  title: { fontSize: 28, fontWeight: 'bold', textAlign: 'left', marginBottom: 24,marginLeft:12 },
+  scrollContent: { paddingBottom: 32, paddingTop: 60 },
+  title: { fontSize: 28, fontWeight: 'bold', textAlign: 'left', marginBottom: 24, marginLeft: 12 },
   chartSection: { marginTop: 32, alignItems: 'center', alignSelf: 'center' },
   chartTitle: { fontWeight: 'bold', fontSize: 18, marginBottom: 8, textAlign: 'center' },
 });

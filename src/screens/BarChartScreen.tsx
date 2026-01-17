@@ -8,6 +8,8 @@ import { giftedBarData, sampleVictoryBarData, victoryBarData, victoryBarData14Da
 import CustomCardView from '../components/global/CustomCardView';
 import { GiftedBarChartWithLegend } from '../components/charts/barchart/CustomizeGiftedBarChart';
 import GiftedBarChart from '../components/charts/barchart/GiftedBarChart';
+import MinimalChart from '../components/charts/barchart/MinimalChart';
+import SkiaBarChart from '../components/charts/barchart/SkiaBarChart';
 
 type Nav = NativeStackNavigationProp<RootStackParamList, 'BarChart'>;
 
@@ -147,7 +149,7 @@ const BarChartScreen = () => {
             initialSpacing: -30,
           }}
           roundedTop={false}
-          customStyles={{ width: SCREEN_WIDTH * 0.9, height: 250,marginTop:20 }}
+          customStyles={{ width: SCREEN_WIDTH * 0.9, height: 250, marginTop: 20 }}
           initialSpacing={10}
           spacing={22}
           // stepHeight={50}
@@ -185,7 +187,7 @@ const BarChartScreen = () => {
           yAxisColor={'#eee'}
           xAxisType={'dashed'}
 
-          renderTooltip={(item:any, index:number) => {
+          renderTooltip={(item: any, index: number) => {
             return (
               <View
                 style={{
@@ -203,6 +205,12 @@ const BarChartScreen = () => {
         />
       </CustomCardView>
 
+    <SkiaBarChart />
+
+
+      <CustomCardView description='Minimal Bar chart' type='barchart' title='Minimal Bar Charts'>
+        <MinimalChart />
+      </CustomCardView>
     </ScrollView>
   );
 };

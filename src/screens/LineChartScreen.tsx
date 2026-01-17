@@ -6,9 +6,10 @@ import CustomGiftedLineChart from '../components/charts/linechart/CustomGiftedLi
 import { lineChartData } from '../utils/chartData';
 import { chartContainerWidth } from '../utils/constants';
 import { View as RNView, Text as RNText } from 'react-native';
+import { LineGraphSkia } from '../components/charts/linechart/LineGraphSkia';
 
 
-const LegendItem = ({ color, label }) => (
+const LegendItem = ({ color, label }:any) => (
   <View style={styles.legendItem}>
     <View style={[styles.legendDot, { backgroundColor: color }]} />
     <Text style={styles.legendText}>{label}</Text>
@@ -141,6 +142,18 @@ const threeMonthsData = Array.from({ length: 90 }, (_, i) => ({
   value: Math.floor(200 + Math.random() * 600),
 }));
 
+
+//  skia points===
+const skiaPoints = [
+  { value: 50, date: new Date('2024-01-01') },
+  { value: 100, date: new Date('2024-01-02') },
+  { value: 75, date: new Date('2024-01-03') },
+  { value: 125, date: new Date('2024-01-04') },
+  { value: 150, date: new Date('2024-01-05') },
+  { value: 130, date: new Date('2024-01-06') },
+  { value: 180, date: new Date('2024-01-07') },
+]
+// 
 const LineChartScreen = () => {
   // Multi-series example
   const multiSeries = [
@@ -225,7 +238,7 @@ const LineChartScreen = () => {
           width={chartContainerWidth}
           height={300}
           showActiveIndicator={false}
-          tooltip={{ show: true, position: 'inline'}}
+          tooltip={{ show: true, position: 'inline' }}
         />
       </CustomCardView>
 
@@ -275,7 +288,7 @@ const LineChartScreen = () => {
       <CustomCardView description="Line chart using react-native-gifted-charts (CustomGiftedLineChart)." type="linechart" title="Gifted Line Chart">
         <CustomGiftedLineChart
           data={generateDailyLineData(10).map(d => ({ value: d.value, label: d.label }))}
-          width={chartContainerWidth-40}
+          width={chartContainerWidth - 40}
           height={220}
           color="#43C6AC"
           areaChart
@@ -531,6 +544,17 @@ const LineChartScreen = () => {
           )}
         />
       </CustomCardView>
+
+        <LineGraphSkia
+          animated={true}
+          points={skiaPoints}
+          color="#50C878"
+          gradientFillColors={['rgba(80, 200, 120, 0.3)', 'rgba(80, 200, 120, 0)']}
+          lineThickness={4}
+          enableIndicator={true}
+          indicatorPulsating={true}
+          style={{flex:1,height:500,backgroundColor:'red'}}
+        />
     </ScrollView>
   );
 };
