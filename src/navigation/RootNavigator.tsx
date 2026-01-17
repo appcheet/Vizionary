@@ -9,6 +9,7 @@ import BarChartScreen from '../screens/BarChartScreen';
 import LineChartScreen from '../screens/LineChartScreen';
 import HomeScreen from '../screens/HomeScreen';
 import DonutPieChartScreen from '../screens/DonutPieChartScreen';
+import WelltoryAppUiScreen from '../screens/WelltoryAppUiScreen';
 
 
 export type RootStackParamList = {
@@ -20,6 +21,7 @@ export type RootStackParamList = {
   BarChartDetails: undefined;
   StackBarChartDetails: undefined;
   DonutPieChartDetails: undefined;
+  WelltoryAppUi:undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -35,6 +37,8 @@ const RootNavigator = () => (
     <Stack.Screen name="StackBarChartDetails" component={StackBarChartDetails} options={{ title: 'Stack Bar Chart Details' }} />
 
     <Stack.Screen name="DonutPieChartDetails" component={DonutPieChartScreen} options={{ title: 'Donut Pie Charts' }} />
+
+        <Stack.Screen name="WelltoryAppUi" component={WelltoryAppUiScreen} options={{ title: 'Donut Pie Charts' }} />
 
   </Stack.Navigator>
 );

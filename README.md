@@ -62,3 +62,6 @@ For more details, see the [React Native docs](https://reactnative.dev/docs/getti
 
 
 https://github.com/kirgudkov/react-native-sleep-stages
+https://www.reddit.com/r/welltory/comments/1dlawvk/welltory_for_beginners_a_complete_guide/
+
+https://rishabhrathod.hashnode.dev/implementing-miuis-wave-animation-using-react-native-reanimated-v2

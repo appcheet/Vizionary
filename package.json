@@ -15,6 +15,7 @@
     "@react-navigation/native-stack": "^7.3.21",
     "@shopify/react-native-skia": "^2.1.1",
     "d3": "^7.9.0",
+    "lucide-react-native": "^0.562.0",
     "react": "19.1.0",
     "react-native": "0.80.1",
     "react-native-gesture-handler": "^2.27.1",

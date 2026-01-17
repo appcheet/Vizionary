@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet, ScrollView } from 'react-native';
+import { Text, StyleSheet, ScrollView, View } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/RootNavigator';
 import { useNavigation } from '@react-navigation/native';
@@ -28,6 +28,9 @@ const HomeScreen = () => {
 
       case 'heart':
         navigation.navigate('StackBarChart');
+        break;
+      case 'welltory':
+        navigation.navigate('WelltoryAppUi');
         break;
       default:
         console.warn(`Unknown type: ${type}`);
@@ -84,6 +87,10 @@ const HomeScreen = () => {
       </CustomCardView>
 
 
+
+      <CustomCardView description="Track trends over time with an interactive wellness chart." containerStyle={[styles.chartSection, { width: chartContainerWidth }]} type="welltory" title="Welltory Modern Chart" onPress={handleNavigationPress}>
+        <View><Text>Welltory ui check</Text></View>
+      </CustomCardView>
 
     </ScrollView>
   );
